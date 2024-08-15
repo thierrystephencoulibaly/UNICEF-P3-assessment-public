@@ -79,7 +79,7 @@ sort Geographicarea
 save anc4_sab_dataset.dta, replace
 
 ***** 4. Import the on-track and off-track dataset
-import excel "https://bit.ly/46QEtALed", sheet("Sheet1") firstrow clear
+import excel "https://github.com/thierrystephencoulibaly/UNICEF-P3-assessment-public/blob/main/01_rawdata/On-track%20and%20off-track%20countries.xlsx?raw=true", sheet("Sheet1") firstrow clear
 
 
 ***** 5. Cleaning on-track and off-track dataset
