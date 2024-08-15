@@ -4,9 +4,6 @@ clear all
 *** Maximum number of variables
 set maxvar 6000
 
-*** Working directory
-cd "C:\Users\ROG ZEPHYRUS\OneDrive\Bureau\UNICEF-P3-assessment-public\01_rawdata"
-
 *************************************************** Task 1  ************************************************************************
 
 *************** Step 1 : Data Preparation
@@ -14,7 +11,7 @@ cd "C:\Users\ROG ZEPHYRUS\OneDrive\Bureau\UNICEF-P3-assessment-public\01_rawdata
 ***** 1. Download ANC4 and SAB data from UNCICEF Global Data repository
 
 ***** 2. Import the downloaded file in Stata
-import excel "C:\Users\ROG ZEPHYRUS\OneDrive\Bureau\UNICEF-P3-assessment-public\01_rawdata\GLOBAL_DATAFLOW_2018-2022.xlsx", sheet("Unicef data") firstrow clear
+import excel "https://bit.ly/4dLIhWg", sheet("Unicef data") firstrow clear
 
 ***** 3. Cleaning the imported dataset
 
@@ -82,7 +79,7 @@ sort Geographicarea
 save anc4_sab_dataset.dta, replace
 
 ***** 4. Import the on-track and off-track dataset
-import excel "C:\Users\ROG ZEPHYRUS\OneDrive\Bureau\UNICEF-P3-assessment-public\01_rawdata\On-track and off-track countries.xlsx", sheet("Sheet1") firstrow clear
+import excel "https://bit.ly/46QEtALed", sheet("Sheet1") firstrow clear
 
 
 ***** 5. Cleaning on-track and off-track dataset
@@ -110,7 +107,7 @@ sort ISO3Code
 save anc4_sab_ontrack_dataset.dta, replace
 
 ***** 7. Import the demographics dataset
-import excel "C:\Users\ROG ZEPHYRUS\OneDrive\Bureau\UNICEF-P3-assessment-public\01_rawdata\WPP2022_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT_REV1.xlsx", ///
+import excel "https://bit.ly/46MyJYS", ///
 sheet("Projections") cellrange(A17:BM22615) firstrow clear //import projections sheet
 
 replace Birthsthousands="" if Birthsthousands=="..."
@@ -174,7 +171,6 @@ gen SAB_weighted=SAB_w_on if SAB!=. & Status==2
 replace SAB_weighted=SAB_w_off if SAB!=. & Status==1
 
 ***** 7. Visualization
-cd "C:\Users\ROG ZEPHYRUS\OneDrive\Bureau\UNICEF-P3-assessment-public\results"
 preserve
 collapse (mean) ANC4_weighted, by(Status)
 graph bar ANC4_weighted, over(Status) ///

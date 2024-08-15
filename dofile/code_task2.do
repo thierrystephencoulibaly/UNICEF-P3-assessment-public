@@ -4,15 +4,12 @@ clear all
 *** Maximum number of variables
 set maxvar 6000
 
-*** Working directory
-cd "C:\Users\ROG ZEPHYRUS\OneDrive\Bureau\UNICEF-P3-assessment-public\results"
-
 *************************************************** Task 2  ************************************************************************
 
 *************** Step 1 : Data preparation
 
 ***** 1. Import the zimbabwe MICS dataset
-import delimited "C:\Users\ROG ZEPHYRUS\OneDrive\Bureau\UNICEF-P3-assessment-public\01_rawdata\Zimbabwe_children_under5_interview.csv"
+import delimited "https://bit.ly/4fJqgKb"
 
 ***** 2. Explore the variables
 codebook
@@ -142,6 +139,6 @@ graph bar (percent), ///
     label(labsize(medium))) ///
 	blabel(bar, format(%9.1f)) ///
     title("ECDI Status for Children Aged 3 or 4") ///
-    legend(label(1 "Good ECDI") label(0 "Poor ECDI"))
+    legend(label(1 "Good ECDI") label(2 "Poor ECDI"))
 graph export "ecdi.png", as(png) replace
 
